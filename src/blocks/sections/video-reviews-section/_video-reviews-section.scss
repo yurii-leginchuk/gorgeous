@@ -15,7 +15,10 @@
 
   .section-slider {
     min-width: calc(100% - 405px - 103px + var(--container-right-gap) + 60px);
-    padding-right: 30px;
+
+    .video-slider {
+      padding-right: 30px;
+    }
   }
 }
 
@@ -121,4 +124,6 @@
     padding-top: 53px;
     padding-bottom: 84px;
   }
+
+
 }

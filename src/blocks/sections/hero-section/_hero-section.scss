@@ -24,6 +24,48 @@
     align-items: center;
     margin-top: 64px;
   }
+
+  &__video {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+
+    .video-wrapper-before {
+      position: relative;
+      width: fit-content;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 270%;
+        height: 270%;
+
+
+        background-image: url('../img/hero-video-bg.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    }
+
+    .video-wrapper {
+      max-width: 369px;
+      height: 655px;
+      position: relative;
+
+      *, video {
+        z-index: 2;
+      }
+      video {
+        position: relative;
+      }
+
+
+    }
+  }
 }
 
 .color-tiles {

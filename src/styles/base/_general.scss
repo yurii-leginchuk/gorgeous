@@ -319,3 +319,41 @@ a, button {
   }
 
 }
+
+.slider-navs {
+  margin-top: 46px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.slider-nav {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+
+
+  &:hover {
+    background: #DD905A;
+    color: #fff;
+
+    svg path[fill] {
+      fill: #fff;
+    }
+
+    svg path[stroke] {
+      fill: #fff;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .slider-navs {
+    display: none;
+  }
+}

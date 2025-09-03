@@ -94,14 +94,19 @@ import "./inputmask.min";
 })();
 
 (() => {
-    const videoSlider = new Swiper('.video-slider', {
+    const videoSlider = document.querySelector(".video-slider");
+    const videoSliderInstance = new Swiper(videoSlider, {
         slidesPerView: "auto",
         spaceBetween: 13,
         breakpoints: {
             768: {
                 spaceBetween: 25
             },
-        }
+        },
+        navigation: {
+            nextEl: videoSlider.closest(".slider-container").querySelector(".next"),
+            prevEl: videoSlider.closest(".slider-container").querySelector(".prev"),
+        },
     });
 })();
 
