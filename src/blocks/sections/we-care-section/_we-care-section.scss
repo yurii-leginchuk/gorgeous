@@ -1,0 +1,52 @@
+.we-care-section {
+
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 490px 1fr;
+    gap: 18px;
+    padding-top: 114px;
+    padding-bottom: 114px;
+  }
+
+  .intro {
+    color: #595758;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px; /* 187.5% */
+  }
+
+  .manc {
+    p {
+      margin-top:  45px;
+    }
+  }
+
+}
+
+@media (max-width: 1120px) {
+  .we-care-section__grid {
+    grid-template-columns: auto 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .we-care-section__grid {
+    grid-template-columns: 100%;
+    gap: 17px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    .intro {
+      font-size: 14px;
+      line-height: 30px;
+    }
+
+    .manc p {
+      margin-top: 16px;
+    }
+  }
+}
