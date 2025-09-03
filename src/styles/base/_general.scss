@@ -51,7 +51,7 @@ img {
   max-width: 100%;
 }
 
-html {
+html, body {
   overflow-x: hidden;
 }
 
@@ -146,8 +146,16 @@ p a {
 }
 
 @media (max-width: 769px) {
-  .bottom-divider:after, .top-divider:after {
+  .bottom-divider:after, .top-divider:before {
     width: 216px;
+  }
+
+  .top-divider:before {
+    left: -15px;
+  }
+
+  .bottom-divider:after {
+    right: -15px;
   }
 }
 

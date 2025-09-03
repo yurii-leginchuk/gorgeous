@@ -76,3 +76,104 @@ import "./inputmask.min";
         });
     }
 })();
+
+(() => {
+    function updateContainerRightGap() {
+        const container = document.querySelector('.container');
+        if (!container) return;
+
+        const rect = container.getBoundingClientRect();
+        const gap = window.innerWidth - rect.right;
+
+        document.documentElement.style.setProperty('--container-right-gap', `${gap}px`);
+    }
+
+    updateContainerRightGap();
+    window.addEventListener('resize', updateContainerRightGap);
+
+})();
+
+(() => {
+    const videoSlider = new Swiper('.video-slider', {
+        slidesPerView: "auto",
+        spaceBetween: 13,
+        breakpoints: {
+            768: {
+                spaceBetween: 25
+            },
+        }
+    });
+})();
+
+(() => {
+    const wrappers = document.querySelectorAll('.video-wrapper');
+    if (!wrappers.length) return;
+
+    const isDesktop = () => window.matchMedia('(min-width: 1024px)').matches;
+    const videos = [];
+
+    wrappers.forEach((wrapper) => {
+        const video = wrapper.querySelector('.video');
+        const playBtn = wrapper.querySelector('.play-btn');
+        const progress = wrapper.querySelector('.progress');
+        if (!video) return;
+
+        videos.push(video);
+
+        video.muted = false;
+        video.playsInline = true;
+        video.preload = video.preload || 'metadata';
+
+        const showBtn = () => wrapper.classList.remove('is-playing');
+        const hideBtn = () => wrapper.classList.add('is-playing');
+        const togglePlay = () => { if (video.paused) video.play(); else video.pause(); };
+        const pauseOthers = (current) => { videos.forEach(v => { if (v !== current && !v.paused) v.pause(); }); };
+
+        const onMouseEnter = () => { if (isDesktop() && video.paused) video.play(); };
+        const onMouseLeave = () => { if (isDesktop() && !video.paused) video.pause(); };
+        const onClick = (e) => {
+            if (isDesktop()) return;
+            if (e.target.closest('.progressbar')) return;
+            togglePlay();
+        };
+
+        const onPlay = () => { pauseOthers(video); hideBtn(); };
+        const onPause = () => showBtn();
+        const onTimeUpdate = () => {
+            if (!progress) return;
+            const dur = video.duration;
+            if (!dur || !isFinite(dur)) return;
+            const percent = Math.min(100, Math.max(0, (video.currentTime / dur) * 100));
+            progress.style.width = percent + '%';
+        };
+
+        let rTO;
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting && !video.paused) video.pause();
+                });
+            }, { threshold: 0.1 });
+            io.observe(wrapper);
+        }
+
+        wrapper.addEventListener('mouseenter', onMouseEnter);
+        wrapper.addEventListener('mouseleave', onMouseLeave);
+        wrapper.addEventListener('click', onClick);
+        if (playBtn) playBtn.addEventListener('click', onClick);
+
+        video.addEventListener('play', onPlay);
+        video.addEventListener('pause', onPause);
+        video.addEventListener('timeupdate', onTimeUpdate);
+
+        if (video.paused) showBtn(); else hideBtn();
+
+        window.addEventListener('resize', () => {
+            clearTimeout(rTO);
+            rTO = setTimeout(() => {
+                if (!video.paused) video.pause();
+            }, 150);
+        });
+    });
+})();
+
