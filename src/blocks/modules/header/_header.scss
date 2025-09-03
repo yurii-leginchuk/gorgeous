@@ -109,3 +109,183 @@
     margin-top: 2px;
   }
 }
+
+@media (max-width: 1290px) {
+  .main-header__actions  {
+    gap: 15px;
+
+    .ic-btn {
+      padding: 0;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      span {
+        display: none;
+      }
+    }
+  }
+}
+
+.toggle-menu .close {
+  display: none;
+}
+
+.toggle-menu.active {
+  .open {
+    display: none;
+  }
+
+  .close {
+    display: block;
+  }
+}
+
+@media (max-width: 1140px) {
+  .main-header {
+    position: relative;
+    z-index: 2;
+
+    .logo, .main-header__mob-actions {
+      z-index: 1;
+      position: relative;
+    }
+  }
+
+  .main-header__nav > ul {
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    width: 100%;
+
+    li a {
+      color: #806E60;
+      font-family: Montserrat;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 50px; /* 250% */
+    }
+  }
+
+  .main-header__nav {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-image: url('../img/menubg.png');
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 80px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 64px;
+    min-height: 100vh;
+    align-items: flex-start;
+  }
+
+  .main-header__mob-actions {
+    display: flex;
+    gap: 5px;
+  }
+
+  .main-header__actions {
+    flex-direction: column;
+    gap: 21px;
+    align-items: flex-start;
+
+    .ic-btn {
+      width: auto;
+      height: auto;
+      padding: 14px 20px;
+      border-radius: 36px;
+      background: rgba(255, 255, 255, 0.40);
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      span {
+        font-family: Montserrat;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+
+      &:hover {
+        background: #DD905A;
+      }
+    }
+
+    .ic-btn span {
+      display: block;
+    }
+
+    .tel-block {
+      padding-left: 46px;
+      position: relative;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background-image: url('../img/telic.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  .main-header.menu-opened {
+    .main-header__nav {
+      display: flex;
+    }
+
+    .main-header__mob-actions {
+      .tel {
+        opacity: 0;
+      }
+
+      .toggle-menu {
+        .open {
+          display: none;
+        }
+
+        .close {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .main-header__nav > ul .submenu, .main-header__nav > ul li.has-submenu:after {
+    display: none !important;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .main-header {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #D3C4A733;
+
+    .logo {
+      max-width: 133px;
+    }
+  }
+}

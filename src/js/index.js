@@ -59,3 +59,20 @@ import "./inputmask.min";
         });
     });
 })();
+
+(() => {
+    const menuBtn = document.querySelector(".toggle-menu");
+
+    if(menuBtn) {
+        menuBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            const header = document.querySelector(".main-header");
+
+            if(header) {
+                header.classList.toggle("menu-opened");
+                document.querySelector("html").classList.toggle("no-scroll");
+            }
+        });
+    }
+})();

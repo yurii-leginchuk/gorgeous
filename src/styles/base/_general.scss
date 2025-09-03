@@ -190,3 +190,27 @@ p a {
     }
   }
 }
+
+.btn-circle {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #F9F6F4;
+  border: none;
+  padding: 0;
+
+  &--orange {
+    background: #DD905A;
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+a, button {
+  cursor: pointer;
+}
