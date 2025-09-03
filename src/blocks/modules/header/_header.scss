@@ -1,0 +1,111 @@
+.main-header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  .container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: space-between;
+    gap: 20px;
+
+    & > ul {
+      display: flex;
+      gap: 24px;
+      margin-left: auto;
+      margin-right: auto;
+
+      .submenu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 100%;
+        background: #F5F0ED;
+        padding: 20px 20px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+        li a {
+          white-space: nowrap;
+        }
+      }
+
+      li.has-submenu {
+        padding-right: 16px;
+        position: relative;
+
+        &:hover .submenu {
+          display: block;
+        }
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: 0;
+          width: 8px;
+          height: 4px;
+          background-image: url('../img/menu-arrow.svg');
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+          transform: translateY(-50%);
+        }
+      }
+
+      li a {
+        color: #806E60;
+        font-family: Montserrat;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-decoration: none;
+        
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 53px;
+  }
+
+  &__mob-actions {
+    display: none;
+  }
+}
+
+.tel-block {
+  a {
+    display: block;
+    color: #806E60;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  span {
+    display: block;
+    color: #806E60;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin-top: 2px;
+  }
+}
