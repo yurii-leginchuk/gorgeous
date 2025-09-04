@@ -203,6 +203,22 @@ p a {
       fill: #fff;
     }
   }
+
+  &--orange {
+    background: #DD905A;
+    padding: 23px 31px;
+    border: none;
+    gap: 17px;
+    
+    span {
+      color: #fff;
+      font-size: 20px;
+    }
+
+    &:hover {
+      background: #b48482;
+    }
+  }
 }
 
 .btn-circle {

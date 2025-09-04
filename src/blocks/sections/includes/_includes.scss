@@ -1,0 +1,81 @@
+.includes-section {
+  padding-top: 178px;
+  padding-bottom: 70px;
+
+  h2 {
+    margin-bottom: 52px;
+  }
+
+  .slider-navs {
+    margin-top: 35px;
+  }
+}
+
+.includes-slider {
+  overflow: visible;
+}
+
+.includes-slide {
+  padding: 47px 50px 37px 50px;
+  border-radius: 32px;
+  background: #FFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 411px;
+
+  .snum {
+    width: 103px;
+    height: 103px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../img/shapes.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  span {
+    color: #595758;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+
+@media (max-width: 768px) {
+  .includes-slide {
+    max-width: 189px;
+    min-height: 254px;
+    padding: 16px;
+
+    .snum {
+      color: #FFF;
+      font-family: Montserrat;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+
+  .includes-section {
+    padding-top: 60px;
+    padding-bottom: 88px;
+
+    h2 {
+      margin-bottom: 36px;
+    }
+  }
+
+
+}

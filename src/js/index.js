@@ -182,3 +182,66 @@ import "./inputmask.min";
     });
 })();
 
+(() => {
+    const tabs = document.querySelector('.tabs');
+
+    if(!tabs) return;
+
+    const dots = tabs.querySelectorAll('.doctors-pagination__dot');
+
+    if(dots.length === 0) return;
+
+    dots.forEach(dot => {
+        dot.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            dots.forEach((item) => {
+                item.classList.remove('active');
+            });
+
+            dot.classList.add('active');
+
+            const i = dot.dataset.tab;
+
+            const boxes = tabs.querySelectorAll(`.spec-tab-container-box[data-t="${i}"]`);
+
+            if(boxes.length) {
+                tabs.querySelectorAll(`.spec-tab-container-box`).forEach((item) => {
+                    item.classList.remove('active');
+                });
+
+                boxes.forEach(box => {
+                    box.classList.add('active');
+                });
+            }
+        });
+    });
+})();
+
+(() => {
+    const includesSlider = document.querySelector(".includes-slider");
+
+    if(includesSlider) {
+        new Swiper(includesSlider, {
+            slidesPerView: 3,
+            spaceBetween: 24,
+            breakpoints: {
+                320: {
+                    slidesPerView: "auto",
+                    spaceBetween: 10,
+                },
+                768: {
+                    slidesPerView: 2
+                },
+                1080: {
+                    slidesPerView: 3
+                },
+            },
+            navigation: {
+                nextEl: includesSlider.closest(".slider-container").querySelector(".next"),
+                prevEl: includesSlider.closest(".slider-container").querySelector(".prev"),
+            },
+        });
+    }
+
+})();
