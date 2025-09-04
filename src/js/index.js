@@ -275,6 +275,28 @@ import "./inputmask.min";
 })();
 
 (() => {
+    const slider = document.querySelector(".implants-slider");
+
+    if(slider) {
+        new Swiper(slider, {
+            slidesPerView: 3,
+            spaceBetween: 95,
+            breakpoints: {
+                320: {
+                    slidesPerView: "auto",
+                    spaceBetween: 32,
+                },
+                1124: {
+                    slidesPerView: 3,
+                    spaceBetween: 95,
+                },
+            },
+        });
+    }
+
+})();
+
+(() => {
     const items = document.querySelectorAll('.s-accorderon__item');
     if (!items.length) return;
 
