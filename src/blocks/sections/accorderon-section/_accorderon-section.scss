@@ -1,0 +1,121 @@
+.accord-sec {
+  padding-top: 141px;
+  padding-bottom: 90px;
+  display: grid;
+  grid-template-columns: auto minmax(auto, 738px);
+  gap: 170px;
+}
+
+.s-accorderon {
+
+  &__item {
+    padding-top: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #595758;
+
+    &.active {
+      .ic:after {
+        content: "-";
+      }
+
+      .s-accorderon__body {
+        display: block;
+      }
+    }
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    cursor: pointer;
+
+    span {
+      color: #595758;
+      font-family: Montserrat;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 30px; /* 150% */
+      text-transform: uppercase;
+    }
+
+    .ic {
+      width: 23px;
+      height: 23px;
+      position: relative;
+
+      &:after {
+        content: "+";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #000;
+        font-family: Montserrat;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 250;
+        line-height: 30px; /* 75% */
+      }
+    }
+  }
+
+  &__body {
+    display: none;
+    margin-top: 21px;
+    padding-bottom: 32px;
+
+    ul {
+      li {
+        position: relative;
+        padding-left: 26px;
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 13px;
+          left: 12px;
+          width: 2px;
+          height: 2px;
+          background: #595758;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1124px) {
+  .accord-sec {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .accord-sec {
+    padding-top: 64px;
+    padding-bottom: 76px;
+  }
+
+  .s-accorderon__item {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .s-accorderon__head span {
+    color: #595758;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+    text-transform: uppercase;
+  }
+
+  .s-accorderon__head .ic:after {
+    font-size: 36px;
+  }
+}
