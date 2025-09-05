@@ -1,0 +1,136 @@
+.we-care-section {
+
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 490px 1fr;
+    gap: 18px;
+    padding-top: 114px;
+    padding-bottom: 114px;
+  }
+
+  .intro {
+    color: #595758;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px; /* 187.5% */
+  }
+
+  .manc {
+    p {
+      margin-top:  45px;
+    }
+  }
+
+}
+
+@media (max-width: 1120px) {
+  .we-care-section__grid {
+    grid-template-columns: auto 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .we-care-section__grid {
+    grid-template-columns: 100%;
+    gap: 17px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    .intro {
+      font-size: 14px;
+      line-height: 30px;
+    }
+
+    .manc p {
+      margin-top: 16px;
+    }
+  }
+}
+
+.bloq-sec {
+  .we-care-section__grid {
+    padding-top:  168px;
+    padding-bottom: 168px;
+  }
+
+  .doctor-bloq {
+    img {
+      margin-bottom: 13px;
+      width: 58px;
+    }
+
+    span {
+      color: #595758;
+      font-family: Montserrat;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px; /* 142.857% */
+      display: block;
+    }
+  }
+
+  .iscloq {
+    color: #595758;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 45px; /* 187.5% */
+    position: relative;
+
+    p {
+      margin-top: 0;
+    }
+
+    &:before {
+      content: "";
+      left: -93px;
+      top: 23px;
+      position: absolute;
+      width: 57px;
+      height: 1px;
+      background: #595758;
+      display: block;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .bloq-sec {
+    .we-care-section__grid {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+  }
+
+  .we-care-section__grid {
+    grid-template-columns: 100%;
+    gap: 38px;
+  }
+
+  .bloq-sec .iscloq {
+    color: #595758;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+    padding-left: 40px;
+
+    p {
+      margin-top: 0;
+    }
+
+    &:before {
+      left: 0;
+      width: 29px;
+      top: 13px;
+    }
+  }
+
+}

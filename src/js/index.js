@@ -247,6 +247,53 @@ import "./inputmask.min";
 })();
 
 (() => {
+    const slider = document.querySelector(".w-im-slider");
+
+    if(slider) {
+        const s = new Swiper(slider, {
+            slidesPerView: 3,
+            spaceBetween: 24,
+            autoHeight: true,
+            breakpoints: {
+                320: {
+                    slidesPerView: "auto",
+                    spaceBetween: 10,
+                },
+                768: {
+                    slidesPerView: 2
+                },
+                1080: {
+                    slidesPerView: 3
+                },
+            },
+            navigation: {
+                nextEl: slider.closest(".slider-container").querySelector(".next"),
+                prevEl: slider.closest(".slider-container").querySelector(".prev"),
+            },
+        });
+
+
+        (() => {
+            const isMobile = () => window.matchMedia('(max-width: 767px)').matches;
+
+            document.addEventListener('click', (e) => {
+                const slide = e.target.closest('.w-im-slide');
+                if (!slide) return;
+                if (!isMobile()) return;
+                slide.classList.toggle('active');
+
+                setTimeout(() => {
+                    s.updateAutoHeight();
+                    s.updateSize();
+                }, 200);
+
+            });
+        })();
+    }
+
+})();
+
+(() => {
     const slider = document.querySelector(".increase-slider");
 
     if(slider) {
@@ -315,4 +362,103 @@ import "./inputmask.min";
     });
 })();
 
+
+(() => {
+    const items = document.querySelectorAll('.gr-ac__item');
+    if (!items.length) return;
+
+    const scrollToItem = (el, offset = 0) => {
+        const top = window.scrollY + el.getBoundingClientRect().top - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+    };
+
+    items.forEach(item => {
+        const head = item.querySelector('.gr-ac__head');
+        if (!head) return;
+
+        head.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+
+            const i = head.dataset.gr;
+
+            const grafics = document.querySelectorAll('.grafic img');
+
+            if(grafics && grafics.length) {
+                grafics.forEach(grafic => {
+                    grafic.classList.remove('active');
+
+                    document.querySelector(`.grafic img[data-gr="${i}"]`).classList.add('active');
+                })
+            }
+
+            items.forEach(el => el.classList.remove('active'));
+            if (!isActive) {
+                item.classList.add('active');
+                //scrollToItem(item, 0);
+            }
+        });
+    });
+})();
+
+(() => {
+    function preload(src){
+        return new Promise((res, rej) => {
+            const img = new Image();
+            img.onload = () => res();
+            img.onerror = rej;
+            img.src = src;
+        });
+    }
+
+    const tTarget = document.querySelector('.reviews-section__content h2');
+    const dTarget = document.querySelector('.reviews-section__content p');
+
+    function init(){
+        const galleries = document.querySelectorAll('.circle-gallery');
+        galleries.forEach(gallery => {
+            const centerImg = gallery.querySelector('.center > img');
+            if(!centerImg) return;
+            const sputniks = gallery.querySelectorAll('.sputnik');
+
+            gallery.addEventListener('click', async (e) => {
+                const sp = e.target.closest('.sputnik');
+                if(!sp || !gallery.contains(sp)) return;
+
+                const t = sp.dataset.revtitle;
+                const d = sp.dataset.revdescr;
+
+                tTarget.innerHTML = t;
+                dTarget.innerHTML = d;
+
+                const thumbImg = sp.querySelector('img');
+                const nextSrc =
+                    sp.dataset.full ||
+                    (thumbImg && thumbImg.dataset.full) ||
+                    (thumbImg && thumbImg.getAttribute('src')) || '';
+
+                if(!nextSrc) return;
+
+                const current = centerImg.currentSrc || centerImg.src || '';
+                if(current === nextSrc){
+                    setActive(sp);
+                    return;
+                }
+
+                try{
+                    await preload(nextSrc);
+                    centerImg.src = nextSrc;
+                    setActive(sp);
+                }catch(_){}
+            });
+
+            function setActive(activeEl){
+                sputniks.forEach(el => el.classList.remove('active'));
+                activeEl.classList.add('active');
+            }
+        });
+    }
+
+    if(document.readyState !== 'loading') init();
+    else document.addEventListener('DOMContentLoaded', init);
+})();
 

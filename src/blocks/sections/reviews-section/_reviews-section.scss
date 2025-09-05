@@ -1,0 +1,159 @@
+.reviews-section {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 759px);
+  gap: 95px;
+  align-items: center;
+
+  &__content {
+    small {
+      display: block;
+      color: #595758;
+      font-family: Montserrat;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 40px; /* 250% */
+      margin-bottom: 39px;
+    }
+
+    h2 {
+      margin-bottom: 46px;
+    }
+  }
+}
+
+
+.circle-gallery {
+  .center {
+    width: 491px;
+    height: 491px;
+    border-radius: 50%;
+
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+
+
+  .sputnik {
+    width: 85px;
+    height: 85px;
+    border: 6px solid transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    cursor: pointer;
+
+    &.active {
+      border-color: #b48482;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &.s1 {
+      top: calc(50% + 44px + 85px);
+      left: calc(-44px - 42px);
+    }
+
+    &.s2 {
+      top: calc(50% + 44px + 85px);
+      right: calc(-44px - 42px * 3);
+      left: auto;
+    }
+
+
+    &.s3 {
+      top: calc(50% - 44px - 42px);
+      left: calc(-44px - 42px);
+    }
+
+    &.s4 {
+      top: calc(50% - 44px - 42px);
+      right: calc(-44px - 42px * 3);
+      left: auto;
+    }
+
+
+    &.s5 {
+      top: calc(-1 * 42px);
+      left: 42px;
+    }
+
+    &.s6{
+      top: calc(-1 * 42px);
+      right: -42px;
+      left: auto;
+    }
+
+    &.s7 {
+      top: calc(-60px - 42px);
+    }
+
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #EFDDC3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+
+    &.d1 {
+      top: 55%;
+      left: -18%;
+    }
+
+    &.d2 {
+      top: 55%;
+      right: -18%;
+      left: auto;
+    }
+
+    &.d3 {
+      top: 11%;
+      left: -8%;
+    }
+
+    &.d4 {
+      top: 11%;
+      right: -8%;
+      left: auto;
+    }
+
+    &.d5 {
+      top: -17%;
+      left: 28%;
+    }
+
+    &.d6 {
+      top: -17%;
+      right: 28%;
+      left: auto;
+    }
+
+  }
+
+
+
+}
+
+.circle-gallery {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,273 @@
+.mamo-section {
+  padding-top: 90px;
+  padding-bottom: 211px;
+  display: grid;
+  grid-template-columns: minmax(auto, 611px) 1fr;
+  gap: 151px;
+}
+
+.grafic {
+  border-radius: 32px;
+  //background-color: #EFDDC3;
+  background-image: url('../img/grbg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 723px;
+  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img:not(.active) {
+    display: none;
+  }
+}
+
+.mamo-section {
+  .content-col {
+    h2 {
+      margin-bottom: 55px;
+    }
+  }
+}
+
+.gr-ac {
+  &__item + .gr-ac__item {
+    margin-top: 60px;
+  }
+
+  &__item:not(.active) {
+    .gr-ac__body {
+      display: none;
+    }
+  }
+
+  &__head {
+    display: grid;
+    grid-template-columns: 46px 1fr;
+    gap: 24px;
+    align-items: center;
+    cursor: pointer;
+
+    .gr-img {
+      display: none;
+    }
+
+    .num {
+      width: 46px;
+      height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #FFF;
+      color: #DD905A;
+      font-family: Montserrat;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+
+    span {
+      color: #595758;
+      font-family: Montserrat;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      width: fit-content;
+      position: relative;
+      display: block;
+
+      &.hit {
+        &:after {
+          content: "ХИТ";
+          position: absolute;
+          top: -7px;
+          right: 0;
+          transform: translateX(54px);
+          color: #FFF;
+          font-family: Montserrat;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+          width: 44px;
+          height: 22px;
+          border-radius: 16px;
+          background: #DD905A;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 2;
+        }
+      }
+    }
+  }
+
+  &__body {
+    margin-top: 29px;
+    display: grid;
+    grid-template-columns: 46px 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .mamo-section {
+    gap: 60px;
+  }
+}
+
+@media (max-width: 1320px) {
+  .mamo-section {
+    grid-template-columns: minmax(auto, 460px) 1fr;
+  }
+}
+
+@media (max-width: 1160px) {
+  .mamo-section {
+    grid-template-columns: 100%;
+  }
+
+  .grafic-col {
+    display: none;
+  }
+
+  .gr-ac__head .num {
+    display: none;
+  }
+
+  .gr-ac__head,  .gr-ac__body {
+    grid-template-columns: 100%;
+    gap: 0;
+
+    .fk {
+      display: none;
+    }
+  }
+
+  .gr-ac__item + .gr-ac__item {
+    margin-top: 52px;
+  }
+
+  .gr-ac__head span:after {
+    display: none !important;
+  }
+
+  .gr-ac__head {
+
+    position: relative;
+
+    .gr-img {
+      width: 239px;
+      height: 283px;
+      border-radius: 32px;
+      background-image: url('../img/rgmob.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 28px;
+      padding: 15px;
+      position: relative;
+
+      &.hit {
+        &:after {
+          content: "ХИТ";
+          position: absolute;
+          top: 18px;
+          right: 20px;
+          color: #FFF;
+          font-family: Montserrat;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+          width: 44px;
+          height: 22px;
+          border-radius: 16px;
+          background: #DD905A;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 2;
+        }
+      }
+
+      .n {
+        position: absolute;
+        width: 46px;
+        height: 46px;
+        flex-shrink: 0;
+        background: #FFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 50%;
+        left: 20px;
+        top: -14px;
+
+        span {
+          z-index: 1;
+          color: #DD905A;
+          font-family: Montserrat;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+        }
+
+        &:before {
+          content: "";
+          width: 76px;
+          height: 76px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-image: url('../img/oreol.png');
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: contain;
+          z-index: 0;
+        }
+      }
+    }
+  }
+
+  .gr-ac__head > span {
+    width: 100%;
+    padding-right: 67px;
+  }
+
+  .gr-ac__head > span:before {
+    content: "";
+    width: 47px;
+    height: 47px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    border-radius: 50%;
+    background-color: #FFF;
+    background-image: url('../img/chevron.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .mamo-section {
+    padding-top: 76px;
+    padding-bottom: 65px;
+  }
+
+}
+
+.gr-ac__item.active .gr-ac__head > span:before {
+  transform: translateY(-50%) rotate(180deg);
+}
